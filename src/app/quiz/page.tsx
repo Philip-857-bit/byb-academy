@@ -23,7 +23,7 @@ import {
 
 import { supabase } from '@/lib/supabase';
 
-const QUIZ_DURATION = 15 * 60;
+const QUIZ_DURATION = 10 * 60;
 
 export default function QuizPage() {
   const router = useRouter();
@@ -49,7 +49,7 @@ export default function QuizPage() {
 
     let score = 0;
     questions.forEach((q) => {
-      if (answers[q.id] === q.correctAnswer) {
+      if (answers[q.id] === q.answer) {
         score++;
       }
     });

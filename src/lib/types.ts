@@ -1,8 +1,10 @@
 export interface Question {
   id: number;
+  class: string;
   question: string;
   options: string[];
-  correctAnswer: string;
+  answer: string;
+  type: 'multiple-choice' | 'true-false';
 }
 
 export interface LeaderboardEntry {
