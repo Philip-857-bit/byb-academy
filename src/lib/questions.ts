@@ -1,395 +1,394 @@
 import type { Question } from './types';
 
 export const questions: Question[] = [
-  // 🧠 Class 1: Evolution of Web (Web1, Web2, Web3)
   {
     id: 1,
-    class: "BYB Week 2",
-    question: "Which of the following best describes a hot wallet?",
+    class: "BYB Week 3",
+    question: "What is the primary reason blockchains require transaction fees?",
     options: [
-      "A wallet connected to the internet for frequent use",
-      "A wallet stored on a paper and kept offline",
-      "A wallet requiring multiple keys to access",
-      "A hardware wallet that supports staking"
+      "Increase user wallets",
+      "Incentivize validators and prevent spam",
+      "Add more block rewards",
+      "Reduce block sizes"
     ],
-    answer: "A wallet connected to the internet for frequent use",
+    answer: "Incentivize validators and prevent spam",
     type: "multiple-choice"
   },
   {
     id: 2,
-    class: "BYB Week 2",
-    question: "Which key type must be kept private to ensure wallet security?",
+    class: "BYB Week 3",
+    question: "In Ethereum, what does 'gas limit' refer to?",
     options: [
-      "Public Key",
-      "Blockchain Key",
-      "Private Key",
-      "Node Key"
+      "The minimum ETH allowed per wallet",
+      "The speed of confirmation",
+      "The maximum amount of gas a user is willing to spend",
+      "Block space usage"
     ],
-    answer: "Private Key",
+    answer: "The maximum amount of gas a user is willing to spend",
     type: "multiple-choice"
   },
   {
     id: 3,
-    class: "BYB Week 2",
-    question: "What is a major benefit of using a multisig wallet?",
-    options: [
-      "It increases transaction speed",
-      "It allows backup of seed phrases",
-      "It requires multiple parties to authorize a transaction",
-      "It supports mining rewards"
-    ],
-    answer: "It requires multiple parties to authorize a transaction",
-    type: "multiple-choice"
-  },
-  {
-    id: 4,
-    class: "BYB Week 2",
-    question: "Why is it important to split funds between hot and cold wallets?",
-    options: [
-      "To avoid high gas fees",
-      "To improve staking rewards",
-      "To maintain liquidity while securing majority of assets",
-      "To allow multiple blockchain access"
-    ],
-    answer: "To maintain liquidity while securing majority of assets",
-    type: "multiple-choice"
-  },
-  {
-    id: 5,
-    class: "BYB Week 2",
-    question: "What is a best practice when generating a paper wallet?",
-    options: [
-      "Use a shared public computer",
-      "Use a browser extension",
-      "Use an offline computer for generation",
-      "Back it up with a cloud service"
-    ],
-    answer: "Use an offline computer for generation",
-    type: "multiple-choice"
-  },
-  {
-    id: 6,
-    class: "BYB Week 2",
-    question: "Which combination is MOST accurate about Bitcoin in the context of the blockchain trilemma?",
-    options: [
-      "High scalability and security, low decentralization",
-      "High decentralization and security, low scalability",
-      "High scalability and decentralization, low security",
-      "Balanced in all three aspects"
-    ],
-    answer: "High decentralization and security, low scalability",
-    type: "multiple-choice"
-  },
-  {
-    id: 7,
-    class: "BYB Week 2",
-    question: "Layer 2 solutions are primarily designed to:",
-    options: [
-      "Enhance the core consensus mechanism",
-      "Store data on-chain permanently",
-      "Improve scalability without compromising Layer 1 security",
-      "Eliminate decentralization issues"
-    ],
-    answer: "Improve scalability without compromising Layer 1 security",
-    type: "multiple-choice"
-  },
-  {
-    id: 8,
-    class: "BYB Week 2",
-    question: "What is the purpose of sharding in a blockchain system?",
-    options: [
-      "To increase decentralization through smaller validators",
-      "To divide the network into segments for parallel transaction processing",
-      "To hide wallet addresses from public view",
-      "To eliminate the need for Layer 2 chains"
-    ],
-    answer: "To divide the network into segments for parallel transaction processing",
-    type: "multiple-choice"
-  },
-  {
-    id: 9,
-    class: "BYB Week 2",
-    question: "Solana prioritizes which two aspects of the blockchain trilemma?",
-    options: [
-      "Security and decentralization",
-      "Scalability and decentralization",
-      "Scalability and security",
-      "Decentralization and anonymity"
-    ],
-    answer: "Scalability and security",
-    type: "multiple-choice"
-  },
-  {
-    id: 10,
-    class: "BYB Week 2",
-    question: "Which of the following is NOT a Layer 1 blockchain?",
+    class: "BYB Week 3",
+    question: "Which blockchain typically uses rent fees for data storage?",
     options: [
       "Ethereum",
-      "Bitcoin",
-      "Polygon",
-      "Solana"
-    ],
-    answer: "Polygon",
-    type: "multiple-choice"
-  },
-  {
-    id: 11,
-    class: "BYB Week 2",
-    question: "What is a rug pull in the context of NFTs?",
-    options: [
-      "An NFT that gets burned after mint",
-      "A project abandoning after raising funds, leaving holders with worthless NFTs",
-      "A smart contract with a time lock",
-      "A mechanism that burns half of all tokens"
-    ],
-    answer: "A project abandoning after raising funds, leaving holders with worthless NFTs",
-    type: "multiple-choice"
-  },
-  {
-    id: 12,
-    class: "BYB Week 2",
-    question: "Which of the following is a method to avoid phishing scams in Web3?",
-    options: [
-      "Clicking only on airdrop links",
-      "Using any wallet with automatic signing",
-      "Verifying contract addresses on trusted explorers",
-      "Accepting DMs from NFT projects"
-    ],
-    answer: "Verifying contract addresses on trusted explorers",
-    type: "multiple-choice"
-  },
-  {
-    id: 13,
-    class: "BYB Week 2",
-    question: "Honeypot scams are most associated with which Web3 niche?",
-    options: [
-      "NFTs",
-      "Layer 1 blockchains",
-      "Memecoins",
-      "Cold wallets"
-    ],
-    answer: "Memecoins",
-    type: "multiple-choice"
-  },
-  {
-    id: 14,
-    class: "BYB Week 2",
-    question: "What is front-running in decentralized exchanges?",
-    options: [
-      "Automatically buying NFTs before mint",
-      "Using insider information to stake tokens early",
-      "Placing a trade ahead of another pending transaction to gain advantage",
-      "Verifying gas prices before mint"
-    ],
-    answer: "Placing a trade ahead of another pending transaction to gain advantage",
-    type: "multiple-choice"
-  },
-  {
-    id: 15,
-    class: "BYB Week 2",
-    question: "DYOR stands for:",
-    options: [
-      "Don't Yield Other Risks",
-      "Do Your Own Research",
-      "Decentralize Your Own Record",
-      "Deploy Your Own Revenue"
-    ],
-    answer: "Do Your Own Research",
-    type: "multiple-choice"
-  },
-  {
-    id: 16,
-    class: "BYB Week 2",
-    question: "Which of the following BEST describes the concept of token supply in tokenomics?",
-    options: [
-      "The number of exchanges a token is listed on",
-      "The total value of NFTs in the ecosystem",
-      "The total and circulating number of tokens available",
-      "The team’s token lockup period"
-    ],
-    answer: "The total and circulating number of tokens available",
-    type: "multiple-choice"
-  },
-  {
-    id: 17,
-    class: "BYB Week 2",
-    question: "Vesting schedules in tokenomics are designed to:",
-    options: [
-      "Boost staking APYs on launch day",
-      "Control token release over time to avoid dumps",
-      "Increase validator incentives",
-      "Support NFTs with fixed rarity"
-    ],
-    answer: "Control token release over time to avoid dumps",
-    type: "multiple-choice"
-  },
-  {
-    id: 18,
-    class: "BYB Week 2",
-    question: "Which of these statements distinguishes a lightpaper from a whitepaper?",
-    options: [
-      "Lightpapers contain deep technical architecture",
-      "Whitepapers are shorter and more visual",
-      "Lightpapers are simplified and less technical overviews",
-      "Whitepapers are only used for marketing"
-    ],
-    answer: "Lightpapers are simplified and less technical overviews",
-    type: "multiple-choice"
-  },
-  {
-    id: 19,
-    class: "BYB Week 2",
-    question: "A whitepaper typically does NOT include:",
-    options: [
-      "Tokenomics and utility structure",
-      "Team information and roadmap",
-      "Detailed technical architecture",
-      "Live trading prices of the token"
-    ],
-    answer: "Live trading prices of the token",
-    type: "multiple-choice"
-  },
-  {
-    id: 20,
-    class: "BYB Week 2",
-    question: "Why are tokenomics important in project evaluation?",
-    options: [
-      "They help developers access private funding",
-      "They determine short-term marketing strategy",
-      "They describe how tokens are distributed, used, and managed",
-      "They explain wallet recovery processes"
-    ],
-    answer: "They describe how tokens are distributed, used, and managed",
-    type: "multiple-choice"
-  },
-  {
-    id: 21,
-    class: "BYB Week 2",
-    question: "What is a primary purpose of a roadmap in a Web3 project?",
-    options: [
-      "To increase blockchain transaction speed",
-      "To guide the user interface design",
-      "To align stakeholders and track milestones",
-      "To distribute free airdrops"
-    ],
-    answer: "To align stakeholders and track milestones",
-    type: "multiple-choice"
-  },
-  {
-    id: 22,
-    class: "BYB Week 2",
-    question: "What is the benefit of a soft launch before a full launch?",
-    options: [
-      "It generates token inflation",
-      "It delays roadmap execution",
-      "It helps gather feedback and catch bugs",
-      "It secures long-term staking partners"
-    ],
-    answer: "It helps gather feedback and catch bugs",
-    type: "multiple-choice"
-  },
-  {
-    id: 23,
-    class: "BYB Week 2",
-    question: "In roadmap planning, the MoSCoW method is used for:",
-    options: [
-      "Token staking options",
-      "Prioritizing tasks and features",
-      "Selecting validators for DAOs",
-      "Calculating transaction throughput"
-    ],
-    answer: "Prioritizing tasks and features",
-    type: "multiple-choice"
-  },
-  {
-    id: 24,
-    class: "BYB Week 2",
-    question: "A good launch checklist should include all EXCEPT:",
-    options: [
-      "Marketing materials",
-      "Rollback plan",
-      "Analytics tools setup",
-      "Whitepaper peer review"
-    ],
-    answer: "Whitepaper peer review",
-    type: "multiple-choice"
-  },
-  {
-    id: 25,
-    class: "BYB Week 2",
-    question: "A project launch retrospective is held to:",
-    options: [
-      "Analyze what worked and what didn’t",
-      "Onboard new token holders",
-      "Upgrade validator hardware",
-      "Audit the NFT minting contract"
-    ],
-    answer: "Analyze what worked and what didn’t",
-    type: "multiple-choice"
-  },
-  {
-    id: 26,
-    class: "BYB Week 2",
-    question: "What does the ERC-20 token standard primarily define?",
-    options: [
-      "How NFTs are generated and transferred",
-      "A protocol for minting stablecoins",
-      "A set of rules for fungible token creation on Ethereum",
-      "A format for lightpapers"
-    ],
-    answer: "A set of rules for fungible token creation on Ethereum",
-    type: "multiple-choice"
-  },
-  {
-    id: 27,
-    class: "BYB Week 2",
-    question: "Fungible tokens differ from NFTs in that:",
-    options: [
-      "Fungible tokens have unique identities",
-      "NFTs are used for staking",
-      "Fungible tokens are interchangeable and identical",
-      "NFTs cannot be stored in wallets"
-    ],
-    answer: "Fungible tokens are interchangeable and identical",
-    type: "multiple-choice"
-  },
-  {
-    id: 28,
-    class: "BYB Week 2",
-    question: "Which of the following best describes a utility token?",
-    options: [
-      "A token used exclusively for governance voting",
-      "A token representing real-world assets only",
-      "A token that provides access or function within a platform",
-      "A token that guarantees returns"
-    ],
-    answer: "A token that provides access or function within a platform",
-    type: "multiple-choice"
-  },
-  {
-    id: 29,
-    class: "BYB Week 2",
-    question: "The SPL token standard is specific to which blockchain?",
-    options: [
-      "Ethereum",
-      "Bitcoin",
       "Solana",
+      "Bitcoin",
       "Polygon"
     ],
     answer: "Solana",
     type: "multiple-choice"
   },
   {
-    id: 30,
-    class: "BYB Week 2",
-    question: "A governance token typically allows holders to:",
+    id: 4,
+    class: "BYB Week 3",
+    question: "What is the formula for calculating Ethereum gas fees?",
     options: [
-      "Buy NFTs during mint",
-      "Earn interest via staking only",
-      "Participate in protocol decisions and votes",
-      "Migrate tokens to new wallets"
+      "ETH ÷ Time",
+      "Gas Units × Gas Price",
+      "Gwei – Network Fee",
+      "Gas Limit + Block Size"
     ],
-    answer: "Participate in protocol decisions and votes",
+    answer: "Gas Units × Gas Price",
+    type: "multiple-choice"
+  },
+  {
+    id: 5,
+    class: "BYB Week 3",
+    question: "Which of the following best defines 'burn fee'?",
+    options: [
+      "A fee that melts NFTs",
+      "A mining penalty fee",
+      "A portion of transaction fees permanently removed from circulation",
+      "A bribe paid to validators"
+    ],
+    answer: "A portion of transaction fees permanently removed from circulation",
+    type: "multiple-choice"
+  },
+  {
+    id: 6,
+    class: "BYB Week 3",
+    question: "What is the purpose of Web3 naming systems like ENS or SNS?",
+    options: [
+      "Host websites",
+      "Replace long wallet addresses with human-readable names",
+      "Store blockchain history",
+      "Encrypt user tokens"
+    ],
+    answer: "Replace long wallet addresses with human-readable names",
+    type: "multiple-choice"
+  },
+  {
+    id: 7,
+    class: "BYB Week 3",
+    question: "What does DID stand for in Web3?",
+    options: [
+      "Decentralized Internal Domain",
+      "Digital Identity Deployment",
+      "Decentralized Identifier",
+      "Dynamic Interoperability Data"
+    ],
+    answer: "Decentralized Identifier",
+    type: "multiple-choice"
+  },
+  {
+    id: 8,
+    class: "BYB Week 3",
+    question: "Which of these tokens is most similar to an identity badge in Web3?",
+    options: [
+      "Soulbound Token (SBT)",
+      "Wrapped Token",
+      "Utility Token",
+      "Staked Token"
+    ],
+    answer: "Soulbound Token (SBT)",
+    type: "multiple-choice"
+  },
+  {
+    id: 9,
+    class: "BYB Week 3",
+    question: "Which of the following is a risk of public ENS domains?",
+    options: [
+      "Unlimited renewals",
+      "Private key exposure",
+      "Public visibility and name squatting",
+      "Proof-of-Work duplication"
+    ],
+    answer: "Public visibility and name squatting",
+    type: "multiple-choice"
+  },
+  {
+    id: 10,
+    class: "BYB Week 3",
+    question: "A Web3 login system primarily uses:",
+    options: [
+      "OTPs and emails",
+      "MetaMask or wallet-based authentication",
+      "Phone number verification",
+      "Cloud identity managers"
+    ],
+    answer: "MetaMask or wallet-based authentication",
+    type: "multiple-choice"
+  },
+  {
+    id: 11,
+    class: "BYB Week 3",
+    question: "Which of the following makes NFTs 'non-fungible'?",
+    options: [
+      "They're backed by fiat",
+      "Each is unique and not interchangeable",
+      "They operate on PoW chains",
+      "They are fixed-supply tokens"
+    ],
+    answer: "Each is unique and not interchangeable",
+    type: "multiple-choice"
+  },
+  {
+    id: 12,
+    class: "BYB Week 3",
+    question: "What is the role of metadata in NFTs?",
+    options: [
+      "Adds extra gas fees",
+      "Makes NFTs invisible",
+      "Stores descriptive data and traits",
+      "Links wallets to dApps"
+    ],
+    answer: "Stores descriptive data and traits",
+    type: "multiple-choice"
+  },
+  {
+    id: 13,
+    class: "BYB Week 3",
+    question: "What does it mean to 'mint' an NFT?",
+    options: [
+      "Transfer ETH",
+      "Upload metadata",
+      "Create a new token on the blockchain",
+      "Trade on a DEX"
+    ],
+    answer: "Create a new token on the blockchain",
+    type: "multiple-choice"
+  },
+  {
+    id: 14,
+    class: "BYB Week 3",
+    question: "Which is NOT a real-world NFT use case?",
+    options: [
+      "Event access",
+      "Voting tokens",
+      "Creator royalties",
+      "Identity in DAOs"
+    ],
+    answer: "Voting tokens",
+    type: "multiple-choice"
+  },
+  {
+    id: 15,
+    class: "BYB Week 3",
+    question: "What is a common NFT scam known as?",
+    options: [
+      "Token drain",
+      "Market spoof",
+      "Rug pull",
+      "DAO sweep"
+    ],
+    answer: "Rug pull",
+    type: "multiple-choice"
+  },
+  {
+    id: 16,
+    class: "BYB Week 3",
+    question: "SocialFi platforms typically reward users for:",
+    options: [
+      "Burning tokens",
+      "Mining NFTs",
+      "Posting and engaging",
+      "Bridging assets"
+    ],
+    answer: "Posting and engaging",
+    type: "multiple-choice"
+  },
+  {
+    id: 17,
+    class: "BYB Week 3",
+    question: "Friend.tech is an example of a platform that uses:",
+    options: [
+      "Governance staking",
+      "Tokenized access to creators",
+      "File storage",
+      "NFT loans"
+    ],
+    answer: "Tokenized access to creators",
+    type: "multiple-choice"
+  },
+  {
+    id: 18,
+    class: "BYB Week 3",
+    question: "In GameFi, players typically earn crypto by:",
+    options: [
+      "Holding BTC",
+      "Completing quests and trading NFTs",
+      "Farming stablecoins",
+      "Watching ads"
+    ],
+    answer: "Completing quests and trading NFTs",
+    type: "multiple-choice"
+  },
+  {
+    id: 19,
+    class: "BYB Week 3",
+    question: "What challenge is common in SocialFi systems?",
+    options: [
+      "Lack of tokens",
+      "No use cases",
+      "Bot spam and fake metrics",
+      "Excessively high gas fees"
+    ],
+    answer: "Bot spam and fake metrics",
+    type: "multiple-choice"
+  },
+  {
+    id: 20,
+    class: "BYB Week 3",
+    question: "What is one major benefit of GameFi over traditional games?",
+    options: [
+      "No in-game rewards",
+      "Centralized decision-making",
+      "Players own and monetize assets",
+      "Pay-to-play only"
+    ],
+    answer: "Players own and monetize assets",
+    type: "multiple-choice"
+  },
+  {
+    id: 21,
+    class: "BYB Week 3",
+    question: "What is InfoFi primarily about in Web3?",
+    options: [
+      "Sending tokenized emails",
+      "Monetizing intelligence and information",
+      "Playing financial games",
+      "Real estate tokenization"
+    ],
+    answer: "Monetizing intelligence and information",
+    type: "multiple-choice"
+  },
+  {
+    id: 22,
+    class: "BYB Week 3",
+    question: "Which of the following is NOT a monetization method in InfoFi?",
+    options: [
+      "Token-gated content",
+      "Proof-of-Work validation",
+      "Tipping",
+      "Subscriptions"
+    ],
+    answer: "Proof-of-Work validation",
+    type: "multiple-choice"
+  },
+  {
+    id: 23,
+    class: "BYB Week 3",
+    question: "How can users earn from consuming InfoFi content?",
+    options: [
+      "By staking predictions and accessing premium groups",
+      "By only minting NFTs",
+      "By selling SBTs",
+      "By delegating tokens"
+    ],
+    answer: "By staking predictions and accessing premium groups",
+    type: "multiple-choice"
+  },
+  {
+    id: 24,
+    class: "BYB Week 3",
+    question: "What makes InfoFi powerful compared to other niches?",
+    options: [
+      "It uses GPU rendering",
+      "It costs high gas",
+      "Information is light but valuable",
+      "It eliminates the need for wallets"
+    ],
+    answer: "Information is light but valuable",
+    type: "multiple-choice"
+  },
+  {
+    id: 25,
+    class: "BYB Week 3",
+    question: "Which of these is a known InfoFi platform?",
+    options: [
+      "MetaStream",
+      "Degen Tips Bot",
+      "Zapper Studio",
+      "LensPlay"
+    ],
+    answer: "Degen Tips Bot",
+    type: "multiple-choice"
+  },
+  {
+    id: 26,
+    class: "BYB Week 3",
+    question: "The Metaverse is best described as:",
+    options: [
+      "A version of DeFi",
+      "A static website layer",
+      "An immersive, interactive digital world",
+      "A browser plugin"
+    ],
+    answer: "An immersive, interactive digital world",
+    type: "multiple-choice"
+  },
+  {
+    id: 27,
+    class: "BYB Week 3",
+    question: "Which token powers land ownership in The Sandbox metaverse?",
+    options: [
+      "$MANA",
+      "$AXS",
+      "$SAND",
+      "$UNI"
+    ],
+    answer: "$SAND",
+    type: "multiple-choice"
+  },
+  {
+    id: 28,
+    class: "BYB Week 3",
+    question: "NFTs in the metaverse can represent:",
+    options: [
+      "Wallet balances only",
+      "3D avatars, wearables, and land",
+      "Private keys",
+      "Blockchain consensus"
+    ],
+    answer: "3D avatars, wearables, and land",
+    type: "multiple-choice"
+  },
+  {
+    id: 29,
+    class: "BYB Week 3",
+    question: "A challenge facing the Metaverse today is:",
+    options: [
+      "Too much hardware decentralization",
+      "High TPS",
+      "Accessibility and technical scalability",
+      "NFT staking"
+    ],
+    answer: "Accessibility and technical scalability",
+    type: "multiple-choice"
+  },
+  {
+    id: 30,
+    class: "BYB Week 3",
+    question: "What future feature could transform user identity in the metaverse?",
+    options: [
+      "SBTs and smart AI avatars",
+      "Rebase tokens",
+      "Multisig contracts",
+      "DeFi flash loans"
+    ],
+    answer: "SBTs and smart AI avatars",
     type: "multiple-choice"
   }
 ];

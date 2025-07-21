@@ -76,8 +76,8 @@ export default function Home() {
               <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">
                 <Clock className="h-5 w-5 mt-1 text-primary shrink-0" />
                 <div>
-                  <h4 className="font-semibold">10-Minute Timer</h4>
-                  <p className="text-muted-foreground">The quiz has a total of 10 minutes. It submits automatically when time runs out.</p>
+                  <h4 className="font-semibold">15-Minute Timer</h4>
+                  <p className="text-muted-foreground">The quiz has a total of 15 minutes. It submits automatically when time runs out.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">
