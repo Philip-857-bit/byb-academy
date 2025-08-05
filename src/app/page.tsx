@@ -65,7 +65,7 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Logo />
             </div>
-            <CardTitle className="text-3xl font-bold">BYB ACADEMY final exam</CardTitle>
+            <CardTitle className="text-3xl font-bold">BYB Academy final exam</CardTitle>
             <CardDescription className="text-muted-foreground">
               Test your knowledge, climb the leaderboard, and get certificate.
             </CardDescription>
