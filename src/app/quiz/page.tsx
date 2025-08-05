@@ -59,7 +59,7 @@ export default function ExamPage() {
     const quizWasInProgress = localStorage.getItem('quizInProgress') === 'true';
     if (quizWasInProgress) {
       // ⚠️ Refresh counts as a new strike
-      const storedStrikes = Number(localStorage.getItem('strikes') || '0') + 1;
+      const storedStrikes = Number(localStorage.getItem('strikes') || '0');
       const storedAnswers = JSON.parse(localStorage.getItem('answers') || '{}');
       const storedTimeLeft = Number(localStorage.getItem('timeLeft') || EXAM_DURATION);
       const storedStartTime = Number(localStorage.getItem('startTime') || Date.now());
@@ -163,7 +163,7 @@ export default function ExamPage() {
     questions.forEach((q) => {
       if (answers[q.id] === q.answer) score++;
     });
-     const result: LeaderboardEntry = { username, email, xHandle, score, time: timeTaken };
+     const result: LeaderboardEntry = { id: Date.now(), username: username ?? "", email: email ?? "", xHandle: xHandle ?? "", score, time: timeTaken };
     localStorage.setItem('latestQuizResult', JSON.stringify(result));
 
    
