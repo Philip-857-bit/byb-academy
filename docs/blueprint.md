@@ -3,7 +3,7 @@
 ## Core Features:
 
 - 30 Questions Total: A total of 30 questions, with 5 questions each from Day 1 to Day 6 topics. Multiple choice or True/False format is recommended for auto-grading.
-- Quiz Timer: A 15-minute countdown timer for the entire quiz, which automatically submits when time runs out.
+- Quiz Timer: A 20-minute countdown timer for the entire quiz, which automatically submits when time runs out.
 - Tab-Switch & Screen Lock: Users are disqualified or get a warning if they switch tabs, leave the quiz window, or try to inspect or refresh the page.
 - Leaderboard: Rankings based on total score and time taken to submit (used as a tiebreaker), with live updates or refreshes after each quiz submission.
 - Authentication: Optional authentication using username or wallet login (if tied to Web3 identity), or a one-time access link or code.

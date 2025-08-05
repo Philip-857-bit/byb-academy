@@ -23,7 +23,7 @@ import {
 
 import { supabase } from '@/lib/supabase';
 
-const QUIZ_DURATION = 15 * 60;
+const QUIZ_DURATION = 20 * 60;
 
 export default function QuizPage() {
   const router = useRouter();
