@@ -129,7 +129,7 @@ export default function LeaderboardPage() {
                   ) : (
                     <TableRow>
                       <TableCell colSpan={5} className="h-24 text-center">
-                        No results yet. Be the first to take the quiz!
+                        No results yet. Be the first to take the Exam!
                       </TableCell>
                     </TableRow>
                   )}

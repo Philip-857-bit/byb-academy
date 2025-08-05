@@ -71,13 +71,13 @@ export default function Home() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <h3 className="font-semibold text-lg mb-4 text-center">Quiz Rules & Instructions</h3>
+            <h3 className="font-semibold text-lg mb-4 text-center">Exam Rules & Instructions</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
               <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">
                 <Clock className="h-5 w-5 mt-1 text-primary shrink-0" />
                 <div>
                   <h4 className="font-semibold">20-Minute Timer</h4>
-                  <p className="text-muted-foreground">The quiz has a total of 20 minutes. It submits automatically when time runs out.</p>
+                  <p className="text-muted-foreground">The Exam has a total of 20 minutes. It submits automatically when time runs out.</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">

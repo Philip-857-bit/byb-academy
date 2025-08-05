@@ -78,9 +78,9 @@ export default function ResultsPage() {
           <div className="flex justify-center mb-4">
             <Logo />
           </div>
-          <CardTitle>Quiz Completed 🎉</CardTitle>
+          <CardTitle>Exam Completed 🎉</CardTitle>
           <CardDescription>
-            Here's how you performed in the Web3 Quiz Challenge.
+            Here's how you performed in the Web3 Exam Challenge.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

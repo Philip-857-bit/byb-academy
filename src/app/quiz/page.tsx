@@ -20,74 +20,32 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
-
 import { supabase } from '@/lib/supabase';
 
-const QUIZ_DURATION = 20 * 60;
+const EXAM_DURATION = 20 * 60; // 20 mins
 
-export default function QuizPage() {
+export default function ExamPage() {
   const router = useRouter();
   const { toast } = useToast();
+
   const [username, setUsername] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null);
   const [xHandle, setXHandle] = useState<string | null>(null);
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
-  const [timeLeft, setTimeLeft] = useState(QUIZ_DURATION);
+  const [timeLeft, setTimeLeft] = useState(EXAM_DURATION);
   const [progress, setProgress] = useState(0);
   const [strikes, setStrikes] = useState(0);
+  const [shownStrike, setShownStrike] = useState(0);
   const [isFinished, setIsFinished] = useState(false);
   const [warningOpen, setWarningOpen] = useState(false);
 
-  const startTime = useRef<number>(Date.now());
+  const startTimeRef = useRef<number>(Date.now());
 
-  const finishQuiz = useCallback(() => {
-    if (isFinished) return;
-    setIsFinished(true);
-
-    const endTime = Date.now();
-    const timeTaken = Math.round((endTime - startTime.current) / 1000);
-
-    let score = 0;
-    questions.forEach((q) => {
-      if (answers[q.id] === q.answer) {
-        score++;
-      }
-    });
-
-    const result = { username, email, xHandle, score, time: timeTaken };
-    localStorage.setItem('latestQuizResult', JSON.stringify(result));
-
-    // ✅ Save result to Supabase
-    if (username && email && xHandle !== null) {
-      supabase.from("leaderboard").insert([
-        { username, email, xHandle, score, time: timeTaken }
-      ]).then(({ error }) => {
-        if (error) {
-          console.error("❌ Error saving to Supabase:", error.message);
-        } else {
-          console.log("✅ Result saved to Supabase");
-        }
-      });
-    }
-
-    // (Optional) Save locally for fallback
-    const leaderboard: LeaderboardEntry[] = JSON.parse(localStorage.getItem('leaderboard') || '[]');
-    leaderboard.push(result as LeaderboardEntry);
-    leaderboard.sort((a, b) => b.score - a.score || a.time - b.time);
-    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
-
-    router.push('/results');
-  }, [answers, username, email, xHandle, router, isFinished]);
-
-  const handleCheatAttempt = useCallback(() => {
-    if (isFinished) return;
-    setStrikes((prev) => prev + 1);
-  }, [isFinished]);
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem('quizUsername');
-    const storedEmail = localStorage.getItem('quizEmail');
-    const storedXHandle = localStorage.getItem('quizXHandle');
+    const storedUsername = localStorage.getItem('quizUsername') || '';
+    const storedEmail = localStorage.getItem('quizEmail') || '';
+    const storedXHandle = localStorage.getItem('quizXHandle') || '';
 
     if (!storedUsername || !storedEmail || !storedXHandle) {
       router.replace('/');
@@ -97,6 +55,25 @@ export default function QuizPage() {
     setUsername(storedUsername);
     setEmail(storedEmail);
     setXHandle(storedXHandle);
+
+    const quizWasInProgress = localStorage.getItem('quizInProgress') === 'true';
+    if (quizWasInProgress) {
+      // ⚠️ Refresh counts as a new strike
+      const storedStrikes = Number(localStorage.getItem('strikes') || '0') + 1;
+      const storedAnswers = JSON.parse(localStorage.getItem('answers') || '{}');
+      const storedTimeLeft = Number(localStorage.getItem('timeLeft') || EXAM_DURATION);
+      const storedStartTime = Number(localStorage.getItem('startTime') || Date.now());
+
+      setStrikes(storedStrikes);
+      setAnswers(storedAnswers);
+      setTimeLeft(storedTimeLeft);
+      startTimeRef.current = storedStartTime;
+    } else {
+      const now = Date.now();
+      localStorage.setItem('quizInProgress', 'true');
+      localStorage.setItem('startTime', now.toString());
+      startTimeRef.current = now;
+    }
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'hidden') handleCheatAttempt();
@@ -117,47 +94,108 @@ export default function QuizPage() {
       window.removeEventListener('contextmenu', handleContextMenu);
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [router, handleCheatAttempt]);
+  }, [router]);
+
+  // 🔁 Persist important values
+  useEffect(() => {
+    localStorage.setItem('answers', JSON.stringify(answers));
+  }, [answers]);
 
   useEffect(() => {
-    if (strikes === 0 || isFinished) return;
+    localStorage.setItem('strikes', strikes.toString());
+  }, [strikes]);
 
-    setTimeout(() => {
-      if (strikes >= 3) {
-        toast({
-          variant: 'destructive',
-          title: 'Disqualified!',
-          description: 'You have been disqualified for suspicious activity.',
-        });
-        finishQuiz();
-      } else {
-        setWarningOpen(true);
-        toast({
-          variant: 'destructive',
-          title: `Warning ${strikes} of 3`,
-          description: 'Switching tabs or trying to inspect the page is not allowed.',
-        });
-      }
-    }, 0);
-  }, [strikes, isFinished, toast, finishQuiz]);
+  useEffect(() => {
+    localStorage.setItem('timeLeft', timeLeft.toString());
+  }, [timeLeft]);
 
+  // ❌ Warning/Disqualification
+  useEffect(() => {
+    if (strikes === 0 || isFinished || strikes === shownStrike) return;
+
+    if (strikes >= 3) {
+      toast({
+        variant: 'destructive',
+        title: 'Disqualified!',
+        description: 'You have been disqualified for suspicious activity.',
+      });
+      finishQuiz();
+    } else {
+      setWarningOpen(true);
+      toast({
+        variant: 'destructive',
+        title: `Warning ${strikes} of 3`,
+        description: 'Switching tabs or trying to inspect the page is not allowed.',
+      });
+    }
+
+    setShownStrike(strikes);
+  }, [strikes, isFinished, shownStrike, toast]);
+
+  // ⏳ Countdown timer
   useEffect(() => {
     if (!username || isFinished) return;
     if (timeLeft <= 0) {
-      setTimeout(() => {
-        toast({ title: "Time's up!", description: 'Your quiz has been submitted automatically.' });
-        finishQuiz();
-      }, 0);
+      toast({ title: "Time's up!", description: 'Your Exam has been submitted automatically.' });
+      finishQuiz();
       return;
     }
-    const timer = setInterval(() => setTimeLeft((t) => t - 1), 1000);
-    return () => clearInterval(timer);
-  }, [timeLeft, finishQuiz, username, isFinished, toast]);
+
+    const interval = setInterval(() => {
+      setTimeLeft((t) => t - 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [timeLeft, username, isFinished, toast]);
+
+  const handleCheatAttempt = useCallback(() => {
+    if (isFinished) return;
+    setStrikes((prev) => prev + 1);
+  }, [isFinished]);
+
+  const finishQuiz = useCallback(() => {
+    if (isFinished) return;
+    setIsFinished(true);
+
+    const endTime = Date.now();
+    const timeTaken = Math.round((endTime - startTimeRef.current) / 1000);
+
+    let score = 0;
+    questions.forEach((q) => {
+      if (answers[q.id] === q.answer) score++;
+    });
+     const result: LeaderboardEntry = { username, email, xHandle, score, time: timeTaken };
+    localStorage.setItem('latestQuizResult', JSON.stringify(result));
+
+   
+    // Save to Supabase
+    if (username && email && xHandle !== null) {
+      supabase.from("leaderboard").insert([
+        { username, email, xHandle, score, time: timeTaken }
+      ]).then(({ error }) => {
+        if (error) console.error("❌ Supabase error:", error.message);
+      });
+    }
+
+    // Save locally as fallback
+    const leaderboard: LeaderboardEntry[] = JSON.parse(localStorage.getItem('leaderboard') || '[]');
+    leaderboard.push(result);
+    leaderboard.sort((a, b) => b.score - a.score || a.time - b.time);
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+
+    // 🧹 Cleanup
+    localStorage.removeItem('quizInProgress');
+    localStorage.removeItem('answers');
+    localStorage.removeItem('strikes');
+    localStorage.removeItem('startTime');
+    localStorage.removeItem('timeLeft');
+
+    router.push('/results');
+  }, [answers, email, username, xHandle, router, isFinished]);
 
   const handleAnswerChange = (questionId: number, value: string) => {
-    const newAnswers = { ...answers, [questionId]: value };
-    setAnswers(newAnswers);
-    setProgress((Object.keys(newAnswers).length / questions.length) * 100);
+    const updated = { ...answers, [questionId]: value };
+    setAnswers(updated);
+    setProgress((Object.keys(updated).length / questions.length) * 100);
   };
 
   const minutes = Math.floor(timeLeft / 60);
@@ -189,14 +227,14 @@ export default function QuizPage() {
         <form onSubmit={(e) => { e.preventDefault(); finishQuiz(); }}>
           <div className="space-y-8">
             {questions.map((q, index) => (
-              <Card key={q.id} className="shadow-lg transition-all hover:shadow-primary/20">
+              <Card key={q.id} className="shadow-lg hover:shadow-primary/20">
                 <CardHeader>
                   <CardTitle>{index + 1}. {q.question}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <RadioGroup onValueChange={(value) => handleAnswerChange(q.id, value)} value={answers[q.id] || ''}>
                     {q.options.map((option, i) => (
-                      <div key={i} className="flex items-center space-x-3 p-3 rounded-md transition-colors hover:bg-secondary">
+                      <div key={i} className="flex items-center space-x-3 p-3 hover:bg-secondary rounded-md">
                         <RadioGroupItem value={option} id={`q${q.id}-o${i}`} />
                         <Label htmlFor={`q${q.id}-o${i}`} className="text-base flex-1 cursor-pointer">{option}</Label>
                       </div>
