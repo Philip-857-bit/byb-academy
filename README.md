@@ -8,7 +8,7 @@ BYB Academy is an interactive platform designed to help users learn and test the
 Features
 
 ✅ Interactive Quizzes – Test your Web3 knowledge with structured quizzes.
-✅ Responsive UI – Works seamlessly on desktop and mobile.
+✅ your-usernameameames seamlessly on desktop and mobile.
 ✅ Multiple Topics – Covers blockchain basics, smart contracts, DeFi, NFTs, and crypto security.
 ✅ User-Friendly – Clean interface for easy navigation and learning.
 ✅ Leaderboard - Global leaderboard showing ranking of user based on score and time taken
@@ -31,7 +31,7 @@ Getting Started
 
 Clone the Repository
 
-git clone https://github.com/your-username/byb-academy.git
+git clone https://github.com/philip-857-bit/byb-academy.git
 cd byb-academy
 
 Install Dependencies
