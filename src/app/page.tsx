@@ -65,9 +65,9 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Logo />
             </div>
-            <CardTitle className="text-3xl font-bold">Web3 Quiz Challenge</CardTitle>
+            <CardTitle className="text-3xl font-bold">BYB ACADEMY final exam</CardTitle>
             <CardDescription className="text-muted-foreground">
-              Test your knowledge and climb the leaderboard.
+              Test your knowledge, climb the leaderboard, and get certificate.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -83,8 +83,8 @@ export default function Home() {
               <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">
                 <AlertCircle className="h-5 w-5 mt-1 text-primary shrink-0" />
                 <div>
-                  <h4 className="font-semibold">30 Questions</h4>
-                  <p className="text-muted-foreground">Answer 30 multiple-choice questions covering key Web3 concepts.</p>
+                  <h4 className="font-semibold">60 Questions</h4>
+                  <p className="text-muted-foreground">Answer 60 multiple-choice questions covering all classes (1 - 27).</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 p-3 bg-secondary rounded-lg">
