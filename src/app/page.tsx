@@ -11,7 +11,7 @@ import {
 import { Logo } from '@/components/Logo';
 import {
   AlertCircle, Clock, Mail, ShieldAlert,
-  Trophy, Twitter, User
+  Trophy, AtSign, User
 } from 'lucide-react';
 import {
   Alert, AlertDescription, AlertTitle
@@ -65,9 +65,9 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Logo />
             </div>
-            <CardTitle className="text-3xl font-bold">BYB Academy final exam</CardTitle>
+            <CardTitle className="text-3xl font-bold">Web3 Fundamentals — Final Exam</CardTitle>
             <CardDescription className="text-muted-foreground">
-              Test your knowledge, climb the leaderboard, and get certificate.
+              Test your knowledge, climb the leaderboard, and earn your certificate.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -126,10 +126,10 @@ export default function Home() {
                 />
               </div>
               <div className="relative">
-                <Twitter className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                <AtSign className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                 <Input
                   type="text"
-                  placeholder="Enter your X handle (e.g. @byb_academy)"
+                  placeholder="Enter your X handle (e.g. @themovement)"
                   value={xHandle}
                   onChange={(e) => setXHandle(e.target.value)}
                   className="pl-10 text-lg h-12"

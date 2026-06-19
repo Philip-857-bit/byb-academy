@@ -8,7 +8,7 @@ import { supabase } from '@/lib/supabase';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Home, Shield, Users, Twitter, Download, Trash2, AlertTriangle, KeyRound, LogIn, LogOut } from 'lucide-react';
+import { Home, Shield, Users, AtSign, Download, Trash2, AlertTriangle, KeyRound, LogIn, LogOut } from 'lucide-react';
 import { Logo } from '@/components/Logo';
 import Papa from 'papaparse';
 import {
@@ -25,7 +25,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 
-const ADMIN_PASSWORD = 'byb-admin-2024';
+const ADMIN_PASSWORD = 'movement-admin-2024';
 
 export default function AdminDashboardPage() {
   const router = useRouter();
@@ -99,7 +99,7 @@ export default function AdminDashboardPage() {
     const link = document.createElement('a');
     const url = URL.createObjectURL(blob);
     link.href = url;
-    link.setAttribute('download', 'byb-quiz-userdata.csv');
+    link.setAttribute('download', 'movement-academy-userdata.csv');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -245,7 +245,7 @@ setIsClearAlertOpen(false);
                               rel="noopener noreferrer"
                               className="flex items-center gap-2 hover:underline"
                             >
-                              <Twitter className="h-4 w-4" />
+                              <AtSign className="h-4 w-4" />
                               {entry.xHandle}
                             </a>
                           ) : (

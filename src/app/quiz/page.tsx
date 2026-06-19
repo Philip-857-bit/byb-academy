@@ -208,7 +208,7 @@ export default function ExamPage() {
     <>
       <div className="sticky top-0 z-10 bg-background/80 backdrop-blur-sm shadow-md">
         <div className="container mx-auto p-4 flex items-center justify-between">
-          <h2 className="text-xl font-bold">BYB Quiz</h2>
+          <h2 className="text-xl font-bold">The Movement Academy</h2>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 font-mono text-lg bg-secondary px-3 py-1 rounded-md">
               <Clock className="h-5 w-5 text-primary" />

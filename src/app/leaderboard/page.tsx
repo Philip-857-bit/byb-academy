@@ -19,7 +19,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Home, Trophy, Twitter } from "lucide-react";
+import { Home, Trophy, AtSign } from "lucide-react";
 import { Logo } from "@/components/Logo";
 
 import { supabase } from "@/lib/supabase";
@@ -111,7 +111,7 @@ export default function LeaderboardPage() {
                               rel="noopener noreferrer"
                               className="flex items-center gap-2 hover:underline"
                             >
-                              <Twitter className="h-4 w-4" />
+                              <AtSign className="h-4 w-4" />
                               {entry.xHandle}
                             </a>
                           ) : (

@@ -1,6 +1,6 @@
-BYB Academy – Web3 Quiz Platform
+The Movement Academy – Web3 Quiz Platform
 
-BYB Academy is an interactive platform designed to help users learn and test their knowledge of Web3 technologies, including blockchain, DeFi, NFTs, and more. The platform provides engaging quizzes to make learning fun, structured, and effective.
+The Movement Academy (formerly BYB Academy) is an interactive platform designed to help users learn and test their knowledge of Web3 technologies, including blockchain, DeFi, NFTs, and more. The platform provides engaging quizzes to make learning fun, structured, and effective.
 
 
 ---

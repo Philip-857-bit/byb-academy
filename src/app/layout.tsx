@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'BYB Academy Quiz',
-  description: 'BYB Academy Quiz Website',
+  title: 'The Movement Academy — Web3 Fundamentals',
+  description: 'The Movement Academy — Web3 Fundamentals exam and leaderboard.',
 };
 
 export default function RootLayout({

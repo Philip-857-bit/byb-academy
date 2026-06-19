@@ -17,18 +17,18 @@ export async function sendCompletionEmail({ to, username, score, totalQuestions 
   });
 
   const mailOptions = {
-    from: `BYB Quiz <${process.env.GMAIL_USER}>`,
+    from: `The Movement Academy <${process.env.GMAIL_USER}>`,
     to,
-    subject: `🎉 Your BYB Quiz Results`,
+    subject: `🎉 Your Web3 Fundamentals Exam Results`,
     html: `
-      <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 1.5rem; border: 1px solid #eee; border-radius: 8px;">
-        <h2 style="color: #6D28D9;">Congratulations, ${username}!</h2>
-        <p>You just completed the <strong>BYB Quiz</strong>.</p>
+      <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 1.5rem; background: #090A09; color: #EDEDED; border: 1px solid #181918; border-radius: 8px;">
+        <h2 style="color: #0DF30D;">Congratulations, ${username}!</h2>
+        <p>You just completed the <strong>The Movement Academy</strong> Web3 Fundamentals exam.</p>
         <p><strong>Score:</strong> ${score} / ${totalQuestions}</p>
         <p>Thank you for participating! 🚀</p>
-        <p style="margin-top: 2rem;">Stay connected:<br/>Twitter: <a href="https://x.com/bybacademy" target="_blank">@bybacademy</a></p>
-        <hr/>
-        <p style="font-size: 0.85rem; color: #888;">If you didn’t take the quiz, you can ignore this email.</p>
+        <p style="margin-top: 2rem;">Stay connected:<br/>Twitter: <a href="https://x.com/themovement" target="_blank" style="color: #0DF30D;">@themovement</a></p>
+        <hr style="border-color: #181918;"/>
+        <p style="font-size: 0.85rem; color: #888;">If you didn’t take the exam, you can ignore this email.</p>
       </div>
     `,
   };
